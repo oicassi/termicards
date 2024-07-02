@@ -1,23 +1,31 @@
 {
-  "name": "termicards",
-  "version": "1.0.0",
-  "description": "A flashcard app in your temrinal",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/oicassi/termicards.git"
-  },
-  "keywords": [
-    "flashcards",
-    "study"
-  ],
-  "author": "Cassiano Kruchelski Vidal",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/oicassi/termicards/issues"
-  },
-  "homepage": "https://github.com/oicassi/termicards#readme"
+	"name": "termicards",
+	"version": "1.0.0",
+	"description": "A flashcard app in your temrinal",
+	"main": "src/index.js",
+	"scripts": {
+		"start": "node src/index.js",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/oicassi/termicards.git"
+	},
+	"keywords": [
+		"flashcards",
+		"study"
+	],
+	"author": "Cassiano Kruchelski Vidal",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/oicassi/termicards/issues"
+	},
+	"homepage": "https://github.com/oicassi/termicards#readme",
+	"type": "module",
+	"devDependencies": {
+		"eslint": "^8",
+		"eslint-config-prettier": "^8.5.0",
+		"eslint-plugin-import": "2.27.5",
+		"prettier": "3.0.0"
+	}
 }

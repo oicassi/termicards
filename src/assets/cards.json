@@ -1,0 +1,15 @@
+[
+	{
+		"subject": "Loss Functions",
+		"cards": [
+			{
+				"question": "What is a loss function?",
+				"answer": "A loss function is a function that measures how well a model is performing."
+			},
+			{
+				"question": "What is the loss function for linear regression?",
+				"answer": "The loss function for linear regression is the mean squared error."
+			}
+		]
+	}
+]
