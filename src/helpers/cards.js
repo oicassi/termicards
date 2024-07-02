@@ -12,8 +12,10 @@ const getDecks = async () => {
 			}
 		})
 	} catch (error) {
-		console.log(error)
-		return []
+		console.log(`Error reading the file`)
+		console.log(`Make sure you have a fila named "cards.json" in src/assets directory.`)
+		console.log(`Check the cards.example.json file to create your own cards.json file.`)
+		process.exit(1)
 	}
 }
 
@@ -93,7 +95,7 @@ const getDeckBySubject = (decks, subject) => {
 const checkExitCommand = (
 	string = '',
 	testString = 'exit',
-	message = 'Thanks for user termicards. Bye 👋'
+	message = '\nThanks for use termicards. Bye 👋'
 ) => {
 	if (string.trim().toLowerCase() === testString) {
 		console.log(message)

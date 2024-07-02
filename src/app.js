@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { input, output, file, date } from './utils/index.js'
 import { cards, validation } from './helpers/index.js'
 

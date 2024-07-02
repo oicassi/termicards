@@ -7,6 +7,9 @@
 		"start": "node src/app.js",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
+	"bin": {
+		"termicards": "./src/app.js"
+	},
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/oicassi/termicards.git"

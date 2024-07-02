@@ -4,16 +4,16 @@ import * as input from './input.js'
 const splashScreen = () => {
 	resetConsole()
 	return new Promise((resolve) => {
-		console.log('................_________                            ')
-		console.log('.............../  ______/__                          ')
-		console.log('............../  /  ______/__                        ')
-		console.log('............./  /  /        /                        ')
-		console.log('............/  /  / ------ /                         ')
-		console.log('.........../  /  / ------ /       TERMICARDS! ✨     ')
-		console.log('........../  /  / ------ /                           ')
-		console.log('........./__/  / ------ /														')
-		console.log('.........../__/ ------ /                             ')
-		console.log('............./________/                              ')
+		console.log('................__________                           ')
+		console.log('.............../  ______ /__                         ')
+		console.log('............../  /  _______/__                       ')
+		console.log('............./  /  /         /                       ')
+		console.log('............/  /  / Q ----- /                        ')
+		console.log('.........../  /  / ------- /       TERMICARDS! 🎴    ')
+		console.log('........../  /  /         /                          ')
+		console.log('........./__/  / A ----- /														')
+		console.log('.........../__/ ------- /                            ')
+		console.log('............./_________/                             ')
 		console.log('																											')
 
 		setTimeout(() => {
