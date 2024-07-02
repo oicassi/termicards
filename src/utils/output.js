@@ -58,7 +58,8 @@ const logResults = async (deck, cardsList) => {
 		logQuestionNumber(i + 1, cardsListLength)
 
 		console.log(`🔸 Question: ${card.question}\n`)
-		console.log(`🔹 Your answer: ${currentAnswer.content}\n\n`)
+		console.log(`🔷 Card answer: ${card.answer}\n`)
+		console.log(`🙂 Your answer: ${currentAnswer.content}\n\n`)
 
 		if (checkedAnswers.length) {
 			console.log('⏪ Previous answers -----------------------------------\n\n')
