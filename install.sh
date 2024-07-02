@@ -39,7 +39,7 @@ fi
 echo "[INFO] Copying files to the global installation directory 🗂️"
 echo "[INFO] Direcotry: $INSTALL_DIR"
 
-sudo cp -r "$CURRENT_DIR" "$INSTALL_DIR"
+sudo cp -r "$CURRENT_DIR/"* "$INSTALL_DIR"
 
 echo "[INFO] Changing directory to the installation directory 📂"
 

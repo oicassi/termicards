@@ -8,6 +8,7 @@ The app will read all the info that you have on your json file that represents e
 Then the app will present a list of subjects (based on what you defined in the json file)
 You will select a subject based on it's name or it's id
 After that you will select how many cards you want to the current study session
+
 > Tip: you can pass the number of cards directly through arguments when starting the app using `termicards number_of_cards`
 
 Then the questions will be presented and you will answer then
@@ -26,12 +27,14 @@ git clone git@github.com:oicassi/termicards.git
 ```
 
 2. Access the directory
+
 ```bash
 cd termicards
 ```
 
 3. Create a `cards.json` file that will hold the decks and flashcards. Follow the structure of the `cards.example.json` in the `src/assets` directory
-```bash
+
+````bash
 touch src/assets/cards.json
 nano src/assets/cards.json
 
@@ -41,9 +44,10 @@ nano src/assets/cards.json
 3. Give execution permission to `install.sh`
 ```bash
 chmod +x ./install.sh
-```
+````
 
 4. Execute installation script
+
 ```bash
 ./install.sh
 ```
@@ -57,9 +61,16 @@ Simple execute the application by typing it's name on terminal: `termicards`
 ### Running the applicaiton with arguments (optional)
 
 Optionally you can execute the application passing the amount of cards you wat to study in that session. To do this, simple pass the number after executing the application's command:
+
 ```bash
 termicards 5 # This will start the study session with 5 cards
 ```
+
+## Updating cards.json
+
+In order to update the `cards.json` file in you installation directory, update the file in this project and then execute the script `update_cards.sh`
+
+> Don't forget to add execution permission to `update_cards.sh` with `chmod +x ./update_cards.sh`
 
 ## Notes
 
