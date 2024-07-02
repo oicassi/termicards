@@ -1,0 +1,23 @@
+{
+  "name": "termicards",
+  "version": "1.0.0",
+  "description": "A flashcard app in your temrinal",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oicassi/termicards.git"
+  },
+  "keywords": [
+    "flashcards",
+    "study"
+  ],
+  "author": "Cassiano Kruchelski Vidal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oicassi/termicards/issues"
+  },
+  "homepage": "https://github.com/oicassi/termicards#readme"
+}
