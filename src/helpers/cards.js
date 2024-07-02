@@ -85,6 +85,11 @@ const getCardsList = (decks, subject, cardsCount) => {
 	return cards
 }
 
+const getDeckBySubject = (decks, subject) => {
+	const deck = decks.find((deck) => deck.subject === subject)
+	return deck
+}
+
 const checkExitCommand = (
 	string = '',
 	testString = 'exit',
@@ -104,5 +109,6 @@ export {
 	getSubjectFromAnswer,
 	getCardsCountFromAnswer,
 	getCardsList,
+	getDeckBySubject,
 	checkExitCommand,
 }

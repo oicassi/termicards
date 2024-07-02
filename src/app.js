@@ -1,4 +1,4 @@
-import { input, output, file } from './utils/index.js'
+import { input, output, file, date } from './utils/index.js'
 import { cards, validation } from './helpers/index.js'
 
 const main = async () => {
@@ -42,22 +42,51 @@ const main = async () => {
 		}
 
 		const cardsList = cards.getCardsList(decks, params.subject, params.cardsCount)
-		cardsList.forEach((card) => {
-			if (!card.userAnswers) {
-				card.userAnswers = []
+		const cardsListLength = cardsList.length
+
+		for (let i = 0; i < cardsListLength; i++) {
+			let isValidAnswer = false
+			const card = cardsList[i]
+			let answer = ''
+
+			while (!isValidAnswer) {
+				output.logQuestionNumber(i + 1, cardsListLength)
+
+				answer = await input.questionUser(`🤔 ${card.question}\n(type exit to leave)`)
+
+				cards.checkExitCommand(answer)
+
+				isValidAnswer = validation.validateTruthyAnswer(answer)
+				if (!isValidAnswer) {
+					output.resetConsole()
+					output.warnUser('Answer should not be empty. Try again.\n\n')
+				}
 			}
-			card.userAnswers.push('abc')
-		})
-		console.log(JSON.stringify(decks))
+
+			output.logFlashcardAnswer(card.answer)
+
+			if (!card.userAnswers) card.userAnswers = []
+			card.userAnswers.push({
+				id: card.userAnswers.length,
+				content: answer,
+				timestamp: date.getCurrentTimestamp(),
+				checked: false,
+			})
+
+			await input.waitForUser()
+			output.resetConsole()
+		}
+
+		output.resetConsole()
+
+		const deck = cards.getDeckBySubject(decks, params.subject)
+		await output.logResults(deck, cardsList)
+
+		console.log('Bye 👋\n\n')
+
+		await file.writeJsonFile(decks)
 	} catch (error) {
 		console.log('Error:', error)
-	}
-
-	try {
-		const data = await file.readJsonFile()
-		console.log('file data:', data)
-	} catch (error) {
-		console.log(error)
 	}
 
 	input.closeInput()

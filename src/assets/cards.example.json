@@ -1,5 +1,18 @@
 [
 	{
+		"subject": "Termicards",
+		"cards": [
+			{
+				"question": "What is Termicards?",
+				"answer": "A simple terminal app to help you study with flashcards."
+			},
+			{
+				"question": "What is a flashcard?",
+				"answer": "A flashcard is a card with a question on one side and the answer on the other side."
+			}
+		]
+	},
+	{
 		"subject": "Loss Functions",
 		"cards": [
 			{

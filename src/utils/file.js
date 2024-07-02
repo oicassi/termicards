@@ -13,17 +13,19 @@ const readJsonFile = (path = `${process.cwd()}/src/assets/cards.json`) => {
 	})
 }
 
-const writeJsonFile = (path = `${process.cwd()}/src/assets/cards.json`, data) => {
+const writeJsonFile = (data, path = `${process.cwd()}/src/assets/cards.json`) => {
+	if (!data) {
+		return Promise.reject('No data provided')
+	}
+
 	return new Promise((resolve, reject) => {
-		return new Promise((resolve, reject) => {
-			fs.writeFile(path, JSON.stringify(data, null, 2), 'utf8', (error) => {
-				if (error) {
-					const msg = error?.message || 'Unexpected error'
-					reject(`Error writing file: ${msg}`)
-					return
-				}
-				resolve()
-			})
+		fs.writeFile(path, JSON.stringify(data, null, 2), 'utf8', (error) => {
+			if (error) {
+				const msg = error?.message || 'Unexpected error'
+				reject(`Error writing file: ${msg}`)
+				return
+			}
+			resolve()
 		})
 	})
 }

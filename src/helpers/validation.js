@@ -13,4 +13,8 @@ const validateDeckLength = (
 	return true
 }
 
-export { validateDeckLength }
+const validateTruthyAnswer = (answer = '') => {
+	return answer.trim().length > 0
+}
+
+export { validateDeckLength, validateTruthyAnswer }

@@ -7,7 +7,7 @@ const rl = readline.createInterface({
 
 const questionUser = (question) => {
 	return new Promise((resolve, reject) => {
-		const outputQuestion = `${question}\n>> `
+		const outputQuestion = `${question}\n\n>> `
 		try {
 			rl.question(outputQuestion, (answer) => {
 				resolve(answer)
@@ -16,6 +16,14 @@ const questionUser = (question) => {
 			const msg = error?.message || 'Unexpected error'
 			reject(`Error asking user: ${msg}`)
 		}
+	})
+}
+
+const waitForUser = (message = 'Press ENTER to continue...') => {
+	return new Promise((resolve) => {
+		rl.question(message, () => {
+			resolve()
+		})
 	})
 }
 
@@ -32,4 +40,4 @@ const getExerciseCardsCount = () => {
 	return count
 }
 
-export { questionUser, closeInput, getExerciseCardsCount }
+export { questionUser, waitForUser, closeInput, getExerciseCardsCount }
