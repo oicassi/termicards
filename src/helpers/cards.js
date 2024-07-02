@@ -47,6 +47,7 @@ const getSubjectFromAnswer = (answer, subjects = []) => {
 		if (subjectFound) {
 			return subjectFound.subject
 		}
+		return ''
 	}
 
 	subjectFound = subjects.find(({ subject }) =>

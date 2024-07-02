@@ -42,7 +42,13 @@ const main = async () => {
 		}
 
 		const cardsList = cards.getCardsList(decks, params.subject, params.cardsCount)
-		console.log(cardsList)
+		cardsList.forEach((card) => {
+			if (!card.userAnswers) {
+				card.userAnswers = []
+			}
+			card.userAnswers.push('abc')
+		})
+		console.log(JSON.stringify(decks))
 	} catch (error) {
 		console.log('Error:', error)
 	}
