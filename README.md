@@ -80,8 +80,10 @@ In order to update the `cards.json` file in you installation directory, update t
 
 ## Future To-Do
 
+- Add the possibility for the user to not type the answer. In this case no answer will recorded
+- Segregate the file that will have the answers from the files that have the questions
 - If the selected amount of cards is greater than the amount of cards registered in the deck, repeat cards to fill the desired amount
 - `cards.json` segregation - Allow the user to split the decks and subjects into multiple files
+- Add a better and easier way to create and update cards
 - Add a way to just see a summary of the results
 - Connect to some generative AI to check if the user's answer is corrrect
-- Add a better and easier way to create and update cards
