@@ -30,7 +30,7 @@ const getSubjects = (decks = []) => {
 const formatSubjectListQuestion = (subjects = []) => {
 	const formattedQuestion = subjects.reduce((finalAnswer, { id, subject }) => {
 		return `${finalAnswer}\n${String(id + 1).padStart(2, '0')} - ${subject}`
-	}, `Type the subject or the number from the following list:\n(Type exit to leave)\n`)
+	}, `Type the subject or the number from the following list:\n`)
 	return formattedQuestion
 }
 

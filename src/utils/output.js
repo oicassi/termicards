@@ -17,15 +17,18 @@ const splashScreen = () => {
 		console.log('																											')
 
 		setTimeout(() => {
-			resetConsole()
 			resolve()
 		}, 3000)
 	})
 }
 
-const resetConsole = () => {
+const resetConsole = (info = '') => {
 	console.clear()
-	console.log('============================ TERMICARDS ============================\n\n')
+	console.log('============================ TERMICARDS ============================\n')
+	if (info) {
+		console.log(`(${info})\n`)
+	}
+	console.log('\n')
 }
 
 const warnUser = (message) => {
@@ -37,9 +40,7 @@ const logFlashcardAnswer = (flashcardAnswer) => {
 }
 
 const logQuestionNumber = (current, total) => {
-	console.log('+-----------+')
-	console.log(`| ${String(current).padStart(4, ' ')}/${String(total).padStart(4, ' ')} |`)
-	console.log('+-----------+\n\n')
+	console.log(`\n# ${current}/${total}\n\n`)
 }
 
 const logResults = async (deck, cardsList) => {
