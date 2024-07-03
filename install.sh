@@ -49,8 +49,6 @@ echo "[INFO] Changing directory to the installation directory 📂"
 
 cd "$INSTALL_DIR"
 
-echo "[INFO] Current directory: $(pwd)"
-
 echo "[INFO] Making the app executable 🚀"
 
 sudo chmod +x ./src/app.js
@@ -61,8 +59,18 @@ sudo npm install
 
 echo "[INFO] Creating a symbolic link to the app 🔗"
 
-ls
+echo "[INFO] Current directory: $(pwd)"
 
-sudo npm link
+ls -al
+
+# sudo npm link
+
+if [ -L "/usr/local/bin/termicards" ]; then
+  echo "[INFO] Removing old symbolic link 🗑️"
+
+  sudo rm -f "/usr/local/bin/termicards"
+fi
+
+sudo ln -s "$INSTALL_DIR/src/app.js" "/usr/local/bin/termicards"
 
 echo "[INFO] Installation complete 🏁"
