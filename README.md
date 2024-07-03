@@ -77,3 +77,11 @@ In order to update the `cards.json` file in you installation directory, update t
 - This application is in early access. So bugs may occur
 - If you inform an amount of cards that is greater than the amount of cards that is defined in the `cards.json` file, the amount of cards defined in `cards.json` file will be use instead
 - Don't forget to create you `cards.json` file in the `src/assets` directory according to the structure defined in the example json file: `src/assets/cards.example.json`
+
+## Future To-Do
+
+- If the selected amount of cards is greater than the amount of cards registered in the deck, repeat cards to fill the desired amount
+- `cards.json` segregation - Allow the user to split the decks and subjects into multiple files
+- Add a way to just see a summary of the results
+- Connect to some generative AI to check if the user's answer is corrrect
+- Add a better and easier way to create and update cards
