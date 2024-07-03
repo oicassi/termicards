@@ -1,7 +1,12 @@
 import fs from 'fs'
 import path from 'path'
+import { fileURLToPath } from 'url'
 
-const readJsonFile = (filePath = path.resolve(process.cwd(), 'src/assets/cards.json')) => {
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+const DEFAULT_FILE_PATH = path.join(__dirname, '..', 'assets/cards.json')
+
+const readJsonFile = (filePath = DEFAULT_FILE_PATH) => {
 	return new Promise((resolve, reject) => {
 		fs.readFile(filePath, 'utf8', (error, data) => {
 			if (error) {
@@ -13,7 +18,7 @@ const readJsonFile = (filePath = path.resolve(process.cwd(), 'src/assets/cards.j
 	})
 }
 
-const writeJsonFile = (data, filePath = path.resolve(process.cwd(), 'src/assets/cards.json')) => {
+const writeJsonFile = (data, filePath = DEFAULT_FILE_PATH) => {
 	if (!data) {
 		return Promise.reject('No data provided')
 	}
