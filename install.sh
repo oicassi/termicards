@@ -45,6 +45,10 @@ echo "[INFO] Direcotry: $INSTALL_DIR"
 
 sudo cp -Rv "$CURRENT_DIR/"* "$INSTALL_DIR/"
 
+echo "[INFO] Changing the owner of the installation directory 🧑‍🤝‍🧑"
+
+sudo chown -R $(whoami) "$INSTALL_DIR"
+
 echo "[INFO] Changing directory to the installation directory 📂"
 
 cd "$INSTALL_DIR"

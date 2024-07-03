@@ -15,4 +15,8 @@ echo "[INFO] Copying cards.json to the global installation directory 🗂️"
 
 sudo cp -r "$CURRENT_DIR/src/assets/cards.json" "$INSTALL_DIR/src/assets/cards.json"
 
+echo "[INFO] Changing the owner of the installation directory 🧑‍🤝‍🧑"
+
+sudo chown -R $(whoami) "$INSTALL_DIR"
+
 echo "[INFO] Cards updated successfully 🎉"
