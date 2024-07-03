@@ -36,10 +36,14 @@ if [ -d "$INSTALL_DIR" ]; then
   sudo rm -rf "$INSTALL_DIR"
 fi
 
+echo "[INFO] Creating the installation directory 📂"
+
+sudo mkdir -p "$INSTALL_DIR"
+
 echo "[INFO] Copying files to the global installation directory 🗂️"
 echo "[INFO] Direcotry: $INSTALL_DIR"
 
-sudo cp -r "$CURRENT_DIR/"* "$INSTALL_DIR"
+sudo cp -Rv "$CURRENT_DIR/"* "$INSTALL_DIR/"
 
 echo "[INFO] Changing directory to the installation directory 📂"
 
@@ -56,6 +60,8 @@ echo "[INFO] Installing dependencies 📦"
 sudo npm install
 
 echo "[INFO] Creating a symbolic link to the app 🔗"
+
+ls
 
 sudo npm link
 
