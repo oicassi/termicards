@@ -43,16 +43,16 @@ const logQuestionNumber = (current, total) => {
 	console.log(`\n# ${current}/${total}\n\n`)
 }
 
-const logResults = async (deck, cardsList) => {
+const logResults = async (subject, cardsList, results) => {
 	const cardsListLength = cardsList.length
 
 	for (let i = 0; i < cardsListLength; i++) {
 		console.log('📝 RESULTS SUMMARY\n\n')
-		console.log(`📚 Subject: ${deck.subject}\n`)
+		console.log(`📚 Subject: ${subject}\n`)
 
 		const card = cardsList[i]
-		const currentAnswer = card.userAnswers.find((answer) => !answer.checked)
-		const checkedAnswers = card.userAnswers.filter((answer) => answer.checked)
+		const currentAnswer = results[subject][card.question].find((answer) => !answer.checked)
+		const checkedAnswers = results[subject][card.question].filter((answer) => answer.checked)
 
 		currentAnswer.checked = true
 

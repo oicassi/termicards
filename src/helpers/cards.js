@@ -19,6 +19,11 @@ const getDecks = async () => {
 	}
 }
 
+const getResults = async () => {
+	const results = await file.readJsonFile('results', true)
+	return results
+}
+
 const getSubjects = (decks = []) => {
 	const subjects = decks.map(({ id, subject }) => ({
 		id,
@@ -106,6 +111,7 @@ const checkExitCommand = (
 
 export {
 	getDecks,
+	getResults,
 	getSubjects,
 	formatSubjectListQuestion,
 	getSubjectFromAnswer,

@@ -36,37 +36,36 @@ const getCardsCountFromUser = async (count = 0) => {
 	return cardsCount
 }
 
-const answerCards = async (cardsList = []) => {
+const addAnswerToResults = (results, subject, card, answer) => {
+	if (!results[subject]) results[subject] = {}
+	if (!results[subject][card.question]) results[subject][card.question] = []
+
+	results[subject][card.question].push({
+		id: results[subject][card.question].length,
+		content: answer,
+		timestamp: date.getCurrentTimestamp(),
+		checked: false,
+	})
+}
+
+const answerCards = async (cardsList = [], subject = '', results = {}) => {
 	const cardsListLength = cardsList.length
 
 	for (let i = 0; i < cardsListLength; i++) {
-		let isValidAnswer = false
 		const card = cardsList[i]
 		let answer = ''
 
-		while (!isValidAnswer) {
-			output.logQuestionNumber(i + 1, cardsListLength)
+		output.logQuestionNumber(i + 1, cardsListLength)
 
-			answer = await input.questionUser(`🤔 ${card.question}`)
+		answer = await input.questionUser(`🤔 ${card.question}`)
 
-			cards.checkExitCommand(answer)
+		cards.checkExitCommand(answer)
 
-			isValidAnswer = validation.validateTruthyAnswer(answer)
-			if (!isValidAnswer) {
-				output.resetConsole(DEFAULT_EXIT_MESSAGE)
-				output.warnUser('Answer should not be empty. Try again.\n\n')
-			}
-		}
+		if (!validation.validateTruthyAnswer(answer)) answer = '(empty answer)'
 
 		output.logFlashcardAnswer(card.answer)
 
-		if (!card.userAnswers) card.userAnswers = []
-		card.userAnswers.push({
-			id: card.userAnswers.length,
-			content: answer,
-			timestamp: date.getCurrentTimestamp(),
-			checked: false,
-		})
+		addAnswerToResults(results, subject, card, answer)
 
 		await input.waitForUser()
 

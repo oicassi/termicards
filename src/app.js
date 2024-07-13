@@ -16,6 +16,8 @@ const main = async () => {
 
 	try {
 		const decks = await cards.getDecks()
+		const results = await cards.getResults()
+
 		validation.validateDeckLength(decks)
 		const subjects = cards.getSubjects(decks)
 
@@ -24,17 +26,15 @@ const main = async () => {
 
 		const cardsList = cards.getCardsList(decks, params.subject, params.cardsCount)
 
-		await flow.answerCards(cardsList)
+		await flow.answerCards(cardsList, params.subject, results)
 
 		output.resetConsole()
 
-		const deck = cards.getDeckBySubject(decks, params.subject)
-
-		await output.logResults(deck, cardsList)
+		await output.logResults(params.subject, cardsList, results)
 
 		console.log('Bye 👋\n\n')
 
-		await file.writeJsonFile(decks)
+		await file.writeJsonFile(results)
 	} catch (error) {
 		console.log('Error:', error)
 	}
